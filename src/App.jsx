@@ -1,15 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
+import data from "./data";
+import SingleQuestion from "./Question";
+import "./App.css";
 
-export default function App() {
-	const counter = 0;
-
-	return (
-		<div className="App">
-			<h1>
-				Counter: <span>{counter}</span>
-			</h1>
-			<button>Increment</button>
-			<button>Decrement</button>
-		</div>
-	);
+function App() {
+	return <h2>accordion project setup</h2>;
 }
+
+export default App;
