@@ -4,7 +4,16 @@ import SingleQuestion from "./Question";
 import "./App.css";
 
 function App() {
-	return <h2>accordion project setup</h2>;
+	return (
+		<main>
+			<div className="container">
+				<h3>FAQ</h3>
+				<section className="info">
+					{/* map over data imported at the top and use SingleQuestion component */}
+				</section>
+			</div>
+		</main>
+	);
 }
 
 export default App;
