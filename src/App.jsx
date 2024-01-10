@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 export default function App() {
 	const questions = [
@@ -40,6 +40,11 @@ export default function App() {
 		},
 	]
 
+	// Define function body to increment the question index variable
+	function handleAnswerClick() {}
+
+	// Define a state variable here to track question status
+
 	return (
 		<div className="app">
 			{false ? (
@@ -52,16 +57,21 @@ export default function App() {
 						<div className="question-count">
 							<span>Question 1</span>/{questions.length}
 						</div>
-						{/* HINT: You can access first question using questions[0] */}
+						{/* You should change the "0" here to a state variable */}
 						<div className="question-text">
-							This is where the question text should go
+							{questions[0].questionText}
 						</div>
 					</div>
+					{/* You should change the "0" here to a state variable */}
 					<div className="answer-section">
-						<button>Answer 1</button>
-						<button>Answer 2</button>
-						<button>Answer 3</button>
-						<button>Answer 4</button>
+						{questions[0].answerOptions.map((answer) => {
+							// Add onClick listener to this button
+							return (
+								<button key={answer.answerText}>
+									{answer.answerText}
+								</button>
+							)
+						})}
 					</div>
 				</>
 			)}
