@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import data from "./data";
-import SingleQuestion from "./Question";
+import React, { useState } from 'react'
+import data from './data'
+import SingleQuestion from './Question'
 
 function App() {
 	return (
@@ -12,14 +12,15 @@ function App() {
 						return (
 							<SingleQuestion
 								title={question.title}
+								info={question.info}
 								key={question.id}
 							/>
-						);
+						)
 					})}
 				</section>
 			</div>
 		</main>
-	);
+	)
 }
 
-export default App;
+export default App
