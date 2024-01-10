@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 export default function App() {
+	// Define a state variable here to track question status
+	const [currentIndex, setCurrentIndex] = useState(0)
+
 	const questions = [
 		{
 			questionText: 'What is the capital of France?',
@@ -40,14 +43,20 @@ export default function App() {
 		},
 	]
 
-	// Define function body to increment the question index variable
-	function handleAnswerClick() {}
+	function handleAnswerClick() {
+		// Check if the quiz is over here
 
-	// Define a state variable here to track question status
+		// If yes, set the quizFinished variable to true
+
+		// If no, increment the current index like always
+		setCurrentIndex((value) => value + 1)
+	}
+
+	const [quizFinished, setQuizFinished] = useState(false)
 
 	return (
 		<div className="app">
-			{false ? (
+			{quizFinished ? (
 				<div className="score-section">
 					You scored 1 out of {questions.length}
 				</div>
@@ -59,15 +68,18 @@ export default function App() {
 						</div>
 						{/* You should change the "0" here to a state variable */}
 						<div className="question-text">
-							{questions[0].questionText}
+							{questions[currentIndex].questionText}
 						</div>
 					</div>
 					{/* You should change the "0" here to a state variable */}
 					<div className="answer-section">
-						{questions[0].answerOptions.map((answer) => {
+						{questions[currentIndex].answerOptions.map((answer) => {
 							// Add onClick listener to this button
 							return (
-								<button key={answer.answerText}>
+								<button
+									onClick={handleAnswerClick}
+									key={answer.answerText}
+								>
 									{answer.answerText}
 								</button>
 							)
