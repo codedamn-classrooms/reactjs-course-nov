@@ -1,21 +1,86 @@
-import React, { useState } from 'react'
-import data from './data'
-import List from './List'
-function App() {
-	// create a state variable here
+import React, { useState, useEffect } from "react";
+import Video from "./Video";
+import "./App.css";
 
-	// this should clear all records
-	function clearAllRecords() {}
+export default function App() {
+	const [videos, setVideos] = useState([]);
+	const [playing, setPlaying] = useState(1);
+
+	useEffect(() => {
+		setVideos([
+			{
+				id: 1,
+				url: "https://github.com/codedamn-classrooms/tiktok-react-material/raw/main/v1.mp4",
+				channel: "codedamn",
+				description: "gg",
+				song: "wowowow",
+				likes: 4441,
+				messages: 4,
+				shares: 100,
+			},
+			{
+				id: 2,
+				url: "https://github.com/codedamn-classrooms/tiktok-react-material/raw/main/v2.mp4",
+				channel: "codedamn",
+				description: "gg",
+				song: "wowowow",
+				likes: 4441,
+				messages: 4,
+				shares: 100,
+			},
+			{
+				id: 3,
+				url: "https://github.com/codedamn-classrooms/tiktok-react-material/raw/main/v3.mp4",
+				channel: "codedamn",
+				description: "gg",
+				song: "wowowow",
+				likes: 4441,
+				messages: 4,
+				shares: 100,
+			},
+			{
+				id: 4,
+				url: "https://github.com/codedamn-classrooms/tiktok-react-material/raw/main/v4.mp4",
+				channel: "codedamn",
+				description: "gg",
+				song: "wowowow",
+				likes: 4441,
+				messages: 4,
+				shares: 100,
+			},
+		]);
+	}, []);
+
 	return (
-		<main>
-			<section className="container">
-				{/* change this to state variable data */}
-				<h3>{[].length} birthdays today</h3>
-				<List people={[]} />
-				<button onClick={clearAllRecords}>Clear All</button>
-			</section>
-		</main>
-	)
+		// BEM
+		<div className="app">
+			<div className="container" onScroll={() => setPlaying(null)}>
+				{videos.map(
+					({
+						id,
+						url,
+						channel,
+						description,
+						song,
+						likes,
+						messages,
+						shares,
+					}) => (
+						<Video
+							key={id}
+							url={url}
+							channel={channel}
+							song={song}
+							playing={playing}
+							setPlaying={setPlaying}
+							likes={likes}
+							messages={messages}
+							description={description}
+							shares={shares}
+						/>
+					)
+				)}
+			</div>
+		</div>
+	);
 }
-
-export default App
