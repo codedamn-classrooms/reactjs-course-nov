@@ -1,3 +1,10 @@
-tabs: ["src/App.jsx", "src/FooterLeft.jsx", "src/FooterLeft.css"]
+tabs:
+  [
+    "src/App.jsx",
+    "src/FooterLeft.jsx",
+    "src/FooterLeft.css",
+    "src/Video.jsx",
+    "src/Video.css",
+  ]
 run-button: bun dev
 terminals: ["bun install && bun dev"]
